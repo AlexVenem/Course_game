@@ -15,9 +15,7 @@
       
            - name: Configure and build
              run: |
-                mkdir build
-                cd build
-                cmake .. -G "MinGW Makefiles"
+                cmake -B build .
                 cmake --build build --config Release
 
            - name: Tests
