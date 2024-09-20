@@ -1,0 +1,46 @@
+    name: build and release
+
+    on:
+        push:
+          branches: [ "main" ]
+        pull_request:
+          branches: [ "main" ]
+
+    jobs:
+        build_project:
+          runs-on: ubuntu-latest
+          steps:
+           - name: Get repository code
+             uses: actions/checkout@v4
+      
+           - name: Configure and build
+             run: |
+                cmake -B build .
+                cmake --build build --config Release
+
+           - name: Tests
+             run: 
+                ctest --test-dir build -V
+
+           - name: Create Release
+             id: create_release
+             uses: actions/create-release@v1
+             env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+             with:
+               tag_name: ${{ github.run_number  }}
+               release_name: Release ${{ github.run_number  }}
+               body: |
+                Auto release for the version ${{ github.run_number }}
+               prerelease: true
+               draft: false
+
+           - name: Upload Release Artifact
+             uses: actions/upload-release-asset@v1
+             env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+             with: 
+              upload_url: ${{ steps.create_release.outputs.upload_url }}
+              asset_name: cmake-main-latest
+              asset_path: ./build/main
+              asset_content_type: application/octet-stream 
