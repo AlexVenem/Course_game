@@ -1,15 +1,15 @@
 #include "colours.h"
 
 const Color emptyGrey = {26, 31, 40, 255};
-const Color green = {47, 230, 23, 255};
-const Color red = {232, 18, 18, 255};
-const Color orange = {226, 116, 17, 255};
-const Color yellow = {237, 234, 4, 255};
-const Color purple = {166, 0, 247, 255};
-const Color cyan = {21, 204, 209, 255};
-const Color blue = {13, 64, 216, 255};
-const Color lightBlue = {59, 85, 162, 255};
-const Color darkBlue = {44, 44, 127, 255};
+const Color green = {106, 204, 109, 255};
+const Color red = {250, 45, 45, 255};
+const Color orange = {255, 167, 93, 255};
+const Color yellow = {202, 204, 106, 255};
+const Color purple = {162, 106, 204, 255};
+const Color cyan = {106, 204, 204, 255};
+const Color blue = {48, 45, 250, 255};
+const Color lightGrey = {108, 108, 117, 255};
+const Color darkGrey = {67, 66, 79, 255};
 
 std::vector<Color> GetCellColours()
 {
