@@ -27,7 +27,8 @@ if (NOT raylib_FOUND) # If there's none, fetch and build raylib
 endif()
 
 # Our Project
-include_directories(${PROJECT_SOURCE_DIR}/include)
+include_directories(${PROJECT_SOURCE_DIR}/Font)
+include_directories(${PROJECT_SOURCE_DIR}/Sounds)
 file(GLOB all_SRCS "${PROJECT_SOURCE_DIR}/src/*.cpp")
 add_executable(main ${all_SRCS})
 target_link_libraries(main raylib)
