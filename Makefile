@@ -1,6 +1,6 @@
 .PHONY: all clean
 
-PROJECT_NAME       ?= game
+PROJECT_NAME       ?= main
 RAYLIB_VERSION     ?= 5.0.0
 RAYLIB_PATH        ?= C:/raylib/raylib
 COMPILER_PATH      ?= C:/raylib/w64devkit/bin
